@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Beach City!</title>
+</head>
+<body>
+
+<h1>Steven Universe tries Word Games!</h1>
+<h2>Can you help Steven learn more about Beach City and the Crystal Gems?</h2>
+<h2>Guess letters to fill in the blanks for words based on Steven's life!</h2>
+
+<form id="hangman">
+    <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Guess a letter" />
+    <input id="guess" name="guess" type="submit" value="Guess" />
+    <button id="restart" name="restart" type="button">Restart</button>
+</form>
+
+<script type="text/javascript" src="game.js">
+	var alphabet = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z];
+	var hello = alert(Would you like to play?);
+	var wins = 0;
+	var wordBank = [Steven, Rose, Greg, Pearl, Garnet, Amethyst, Sapphire, Ruby, Peridot, Lapis, Jasper, Sadie, Lars, Onion];
+	var chances = 10;
+
+document.onkeyup = function(event) {
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+	var computerGuess = wordBank[Math.floor(Math.random() * wordBank.length)];
+
+if (userGuess == computerGuess) {
+	continue++;
+}else if (userGuess != computerGuess) {
+	losses;
+}
+
+guessButton = document.getElementById("guess");
+        guessInput.style.display = 'inline';
+        guessButton.style.display = 'inline';
+
+</script>
