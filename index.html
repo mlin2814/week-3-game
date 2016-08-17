@@ -12,6 +12,7 @@
 
 <div id="letters"></div>
 <div id="guesses"></div>
+<div id="moves"></div>
 </body>
 <script>
     var wordBank = ["Steven", "Rose", "Greg","Pearl", "Garnet", "Amethyst", "Sapphire", "Ruby", "Peridot", "Lapis", "Jasper", "Sadie", "Lars", "Onion"];
@@ -31,7 +32,12 @@ var startGame = function(){
     document.getElementById("letters").innerHTML = blanksAndSuccesses.join(" ");
 }
 var checkLetters = function(letter){
-    //console.log(letter);
+    
+
+    if(numGuesses == 0){
+    	return;
+    }
+
     if (guesses.includes(letter)){
     	console.log("Guessed Already");
     	return;
@@ -50,7 +56,7 @@ var checkLetters = function(letter){
     	console.log("letter is not in word");
     	numGuesses--;
     }
-    //blanksAndSuccesses.push(letter);
+
 }
 document.onkeyup = function(event) {
     letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
@@ -58,7 +64,7 @@ document.onkeyup = function(event) {
     document.getElementById("letters").innerHTML = blanksAndSuccesses.join(" ");
 }
 startGame();
-checkLetters();
+//checkLetters();
 </script>
 </html>
 
