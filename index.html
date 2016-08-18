@@ -3,17 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Welcome to Beach City!</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
 
-<h1>Steven Universe tries Word Games!</h1>
-<h2>Can you help Steven learn more about Beach City and the Crystal Gems?</h2>
-<h2>Guess letters to fill in the blanks for words based on Steven's life!</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8'">
+			<h1>Steven Universe tries Word Games!</h1>
+			<h2>Can you help Steven learn more about Beach City and the Crystal Gems?</h2>
+			<h2>Guess letters to fill in the blanks for words based on Steven's life!</h2>
+			<div id="letters"></div>
+			<div id="guesses"></div>
+			<div id="moves"></div>
+		</div>
+	</div>
+</div>
 
-<div id="letters"></div>
-<div id="guesses"></div>
-<div id="moves"></div>
+<div class="row">
+	<div class="col-md-4">
+		<div class="image">
+			<img src="assets/images/Tumblr_nr4vl0gO6H1qm3rsfo1_400.gif">
+		</div>
+	</div>
+</div>
 </body>
+
 <script>
     var wordBank = ["Steven", "Rose", "Greg","Pearl", "Garnet", "Amethyst", "Sapphire", "Ruby", "Peridot", "Lapis", "Jasper", "Sadie", "Lars", "Onion"];
 var startGame = function(){
@@ -32,8 +47,6 @@ var startGame = function(){
     document.getElementById("letters").innerHTML = blanksAndSuccesses.join(" ");
 }
 var checkLetters = function(letter){
-    
-
     if(numGuesses == 0){
     	return;
     }
@@ -44,6 +57,7 @@ var checkLetters = function(letter){
     }else {
     	guesses.push(letter);
     }
+
     isPresent = false;
     for(var k = 0; k<numBlanks; k++){
     	if(splitChosenWord[k].toLowerCase()===letter){
@@ -53,16 +67,18 @@ var checkLetters = function(letter){
     }
 
     if(!isPresent){
-    	console.log("letter is not in word");
+    	alert("letter is not in word");
     	numGuesses--;
     }
-
 }
+
 document.onkeyup = function(event) {
     letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
     checkLetters(letterGuessed);
     document.getElementById("letters").innerHTML = blanksAndSuccesses.join(" ");
 }
+
+
 startGame();
 //checkLetters();
 </script>
